@@ -14,7 +14,7 @@ namespace ShoppingCart
     {
         public string Name;
         public string Code;
-        public int UnitsAvailable;
-        public int CostPerUnit;
+        public int UnitsPurchased;
+        public int TotalCost;
     }
 }

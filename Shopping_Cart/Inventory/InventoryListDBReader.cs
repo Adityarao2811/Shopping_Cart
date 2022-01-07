@@ -9,7 +9,7 @@ namespace ShoppingCart
         {
             foreach (var item in inventoryList.Items)
             {
-                Console.WriteLine(Utility.Columize(item.Code) + Utility.Columize(item.Name) + Utility.Columize(item.UnitsAvailable.ToString()) + Utility.Columize(item.UnitsAvailable.ToString()));
+                Console.WriteLine(Utility.Columize(item.Code) + Utility.Columize(item.Name) + Utility.Columize(item.UnitsAvailable.ToString()) + Utility.Columize(item.CostPerUnit.ToString()));
                 Console.WriteLine(KeyStore.TableSeperator);
             }
         }
@@ -37,7 +37,7 @@ namespace ShoppingCart
             return inventoryList;
         }
 
-        public static InventoryItem TranslateToInventoryItem(string itemString)
+        private static InventoryItem TranslateToInventoryItem(string itemString)
         {
             string[] itemDetails = itemString.Split("|");
             return new InventoryItem()

@@ -4,27 +4,7 @@ namespace ShoppingCart
 {
     public class Utility
     {
-        public static void DisplayMenu()
-        {
-            Console.WriteLine(KeyStore.WelcomeMessage);
-            Console.WriteLine(KeyStore.Seperator);
-            DisplayMenuHeader();
-            InventoryList inventoryList = InventoryListDBReader.GetInventoryListFromTextFile();
-            InventoryListDBReader.DisplayInventoryList(inventoryList);
-            Console.WriteLine(KeyStore.Seperator);
-        }
-
-        public static void DisplayCart()
-        {
-            Console.WriteLine(KeyStore.DisplayingCartMessage);
-            Console.WriteLine(KeyStore.Seperator);
-            DisplayMenuHeader();
-            ICart cart;
-            cart = new CartDBReader();
-            cart.DisplayCartItems();
-            Console.WriteLine(KeyStore.Seperator);
-        }
-
+        
         public static void DisplayMenuHeader()
         {
             string[] words = KeyStore.MenuHeader.Split("|");

@@ -7,19 +7,9 @@ using System.Threading.Tasks;
 
 namespace ShoppingCart
 {
-    public class CartDBReader : ICart
-    {
-        public void DisplayCartItems()
-        {
-            CartList cartList = GetCartListFromTextFile();
-            foreach (var item in cartList.Items)
-            {
-                Console.WriteLine(Utility.Columize(item.Code) + Utility.Columize(item.Name) + Utility.Columize(item.UnitsAvailable.ToString()) + Utility.Columize(item.UnitsAvailable.ToString()));
-                Console.WriteLine(KeyStore.TableSeperator);
-            }
-        }
-
-        private CartList GetCartListFromTextFile()
+    public static class CartDBReader
+    {       
+        public static CartList GetCartListFromTextFile()
         {
             string line;
             CartList cartList = new CartList();
@@ -49,8 +39,8 @@ namespace ShoppingCart
             {
                 Code = itemDetails[0],
                 Name = itemDetails[1],
-                UnitsAvailable = Convert.ToInt32(itemDetails[2]),
-                CostPerUnit = Convert.ToInt32(itemDetails[3])
+                UnitsPurchased = Convert.ToInt32(itemDetails[2]),
+                TotalCost = Convert.ToInt32(itemDetails[3])
             };
         }
     }
