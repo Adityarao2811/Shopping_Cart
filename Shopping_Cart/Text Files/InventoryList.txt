@@ -1,0 +1,3 @@
+﻿Banana-01-15-kg-60
+Apples-02-20-kg-100
+Orange-03-10-kg-80
