@@ -14,6 +14,17 @@ namespace ShoppingCart
             Console.WriteLine(KeyStore.Seperator);
         }
 
+        public static void DisplayCart()
+        {
+            Console.WriteLine(KeyStore.DisplayingCartMessage);
+            Console.WriteLine(KeyStore.Seperator);
+            DisplayMenuHeader();
+            ICart cart;
+            cart = new CartDBReader();
+            cart.DisplayCartItems();
+            Console.WriteLine(KeyStore.Seperator);
+        }
+
         public static void DisplayMenuHeader()
         {
             string[] words = KeyStore.MenuHeader.Split("|");
