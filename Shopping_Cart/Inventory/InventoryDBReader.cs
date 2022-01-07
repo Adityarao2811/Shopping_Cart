@@ -3,21 +3,21 @@ using System.IO;
 
 namespace ShoppingCart
 {
-    public static class InventoryListDBReader
+    public static class InventoryDBReader
     {
-        public static void DisplayInventoryList(InventoryList inventoryList)
+        public static void DisplayInventory(Inventory inventory)
         {
-            foreach (var item in inventoryList.Items)
+            foreach (var item in inventory.Items)
             {
-                Console.WriteLine(Utility.Columize(item.Code) + Utility.Columize(item.Name) + Utility.Columize(item.UnitsAvailable.ToString()) + Utility.Columize(item.UnitsAvailable.ToString()));
+                Console.WriteLine(Utility.Columize(item.Code) + Utility.Columize(item.Name) + Utility.Columize(item.UnitsAvailable.ToString()) + Utility.Columize(item.CostPerUnit.ToString()));
                 Console.WriteLine(KeyStore.TableSeperator);
             }
         }
 
-        public static InventoryList GetInventoryListFromTextFile()
+        public static Inventory GetInventoryFromTextFile()
         {
             string line;
-            InventoryList inventoryList = new InventoryList();
+            Inventory inventory = new Inventory();
             try
             {
                 using (StreamReader sr = new StreamReader(KeyStore.InventoryFilePath))
@@ -25,7 +25,7 @@ namespace ShoppingCart
                     while ((line = sr.ReadLine()) != null)
                     {
                         var item = TranslateToInventoryItem(line);
-                        inventoryList.Items.Add(item);
+                        inventory.Items.Add(item);
                     }
                 }
             }
@@ -34,10 +34,10 @@ namespace ShoppingCart
                 Console.WriteLine(KeyStore.ExceptionCaughtMessage + e.Message);
                 Console.WriteLine(KeyStore.Seperator);
             }
-            return inventoryList;
+            return inventory;
         }
 
-        public static InventoryItem TranslateToInventoryItem(string itemString)
+        private static InventoryItem TranslateToInventoryItem(string itemString)
         {
             string[] itemDetails = itemString.Split("|");
             return new InventoryItem()

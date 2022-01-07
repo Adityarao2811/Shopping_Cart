@@ -2,7 +2,7 @@
 
 namespace ShoppingCart
 {
-    public class InventoryList
+    public class Inventory
     {
         public List<InventoryItem> Items = new List<InventoryItem>();
     }

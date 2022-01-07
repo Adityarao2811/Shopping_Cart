@@ -12,7 +12,10 @@ namespace ShoppingCart
             name = Console.ReadLine();
             Console.WriteLine(KeyStore.Email);
             email = Console.ReadLine();
-            Utility.DisplayMenu();
+            IInventoryService inventory = new InventoryService();
+            inventory.DisplayMenu();
+            ICartService cart = new CartService();
+            cart.DisplayCartItems();
         }
     }
 }
