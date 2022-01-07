@@ -13,7 +13,7 @@ namespace ShoppingCart
         {
             Console.WriteLine(KeyStore.WelcomeMessage);
             Console.WriteLine(KeyStore.Seperator);
-            Console.WriteLine(KeyStore.MenuHeader);
+            Utility.DisplayTable(KeyStore.MenuHeader);
             string line;
             try
             {
@@ -21,15 +21,32 @@ namespace ShoppingCart
                 {
                     while ((line = sr.ReadLine()) != null)
                     {
-                        Console.WriteLine(line);
+                        DisplayTable(line);
                     }
                 }
                 Console.WriteLine(KeyStore.Seperator);
-            }catch(Exception e)
+            } catch (Exception e)
             {
-                Console.WriteLine(KeyStore.ExceptionCaughtMessage+e);
+                Console.WriteLine(KeyStore.ExceptionCaughtMessage + e.Message);
                 Console.WriteLine(KeyStore.Seperator);
-            }                     
+            }
         }
+
+        public static void DisplayTable(string row)
+        {
+            string[] words = row.Split("|");
+            Console.WriteLine(Columize(words[0]) + Columize(words[1]) + Columize(words[2]) + Columize(words[3]));
+            Console.WriteLine(KeyStore.TableSeperator);
+        }
+
+        public static string Columize(string word)
+        {
+            var lengthOfWord = word.Length;
+            for (int i = 0; i < KeyStore.DisplayColumnWidth - lengthOfWord; i++)
+            {
+                word = word + " ";
+            }
+            return word + "|";
+        }                     
     }
 }
