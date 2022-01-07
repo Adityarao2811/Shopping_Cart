@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ShoppingCart
 {
-    public class Inventory : IInventory
+    public class Inventory
     {
-        public void DisplayMenu()
-        {
-            Console.WriteLine(KeyStore.WelcomeMessage);
-            Console.WriteLine(KeyStore.Seperator);
-            Utility.DisplayMenuHeader();
-            InventoryList inventoryList = InventoryListDBReader.GetInventoryListFromTextFile();
-            InventoryListDBReader.DisplayInventoryList(inventoryList);
-            Console.WriteLine(KeyStore.Seperator);
-        }
+        public List<InventoryItem> Items = new List<InventoryItem>();
+    }
+
+    public class InventoryItem
+    {
+        public string Name;
+        public string Code;
+        public int UnitsAvailable;
+        public int CostPerUnit;
     }
 }

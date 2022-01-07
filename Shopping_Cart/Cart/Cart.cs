@@ -6,20 +6,15 @@ using System.Threading.Tasks;
 
 namespace ShoppingCart
 {
-    public class Cart : ICart
+    public class Cart
     {
-        public void DisplayCartItems()
-        {
-            Console.WriteLine(KeyStore.DisplayingCartMessage);
-            Console.WriteLine(KeyStore.Seperator);
-            Utility.DisplayMenuHeader();
-            Console.WriteLine(KeyStore.Seperator);
-            CartList cartList = CartDBReader.GetCartListFromTextFile();
-            foreach (var item in cartList.Items)
-            {
-                Console.WriteLine(Utility.Columize(item.Code) + Utility.Columize(item.Name) + Utility.Columize(item.UnitsPurchased.ToString()) + Utility.Columize(item.TotalCost.ToString()));
-                Console.WriteLine(KeyStore.TableSeperator);
-            }
-        }
+        public List<CartItem> Items = new List<CartItem>();
+    }
+    public class CartItem
+    {
+        public string Name;
+        public string Code;
+        public int UnitsPurchased;
+        public int TotalCost;
     }
 }

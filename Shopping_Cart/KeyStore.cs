@@ -9,8 +9,8 @@
         public static string TableSeperator = "----------------------------------------------------------------";
         public static string Seperator = "*************************************************************************************";
 
-        public static string InventoryFilePath = @"C:\Users\pc\source\repos\Shopping_Cart\Shopping_Cart\Text Files\InventoryList.txt";
-        public static string CartFilePath = @"C:\Users\pc\source\repos\Shopping_Cart\Shopping_Cart\Text Files\CartList.txt";
+        public static string InventoryFilePath = @"C:\Users\pc\source\repos\Shopping_Cart\Shopping_Cart\Text Files\Inventory.txt";
+        public static string CartFilePath = @"C:\Users\pc\source\repos\Shopping_Cart\Shopping_Cart\Text Files\Cart.txt";
 
         public static string ExceptionCaughtMessage = "Exception caught: ";
 

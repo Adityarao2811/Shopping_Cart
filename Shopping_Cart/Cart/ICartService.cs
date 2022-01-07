@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingCart
 {
-    public interface ICart
+    public interface ICartService
     {
         public  void DisplayCartItems();
     }

@@ -9,10 +9,10 @@ namespace ShoppingCart
 {
     public static class CartDBReader
     {       
-        public static CartList GetCartListFromTextFile()
+        public static Cart GetCartFromTextFile()
         {
             string line;
-            CartList cartList = new CartList();
+            Cart cart = new Cart();
             try
             {
                 using (StreamReader sr = new StreamReader(KeyStore.CartFilePath))
@@ -20,7 +20,7 @@ namespace ShoppingCart
                     while ((line = sr.ReadLine()) != null)
                     {
                         var item = TranslateToCartItem(line);
-                        cartList.Items.Add(item);
+                        cart.Items.Add(item);
                     }
                 }
             }
@@ -29,7 +29,7 @@ namespace ShoppingCart
                 Console.WriteLine(KeyStore.ExceptionCaughtMessage + e.Message);
                 Console.WriteLine(KeyStore.Seperator);
             }
-            return cartList;
+            return cart;
         }
 
         private static CartItem TranslateToCartItem(string itemString)
