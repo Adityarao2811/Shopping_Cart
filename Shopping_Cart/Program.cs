@@ -13,7 +13,6 @@ namespace ShoppingCart
             Console.WriteLine(KeyStore.Email);
             email = Console.ReadLine();
             Utility.DisplayMenu();
-
         }
     }
 }
